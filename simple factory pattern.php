@@ -1,16 +1,10 @@
 <?php
 
-/**
- * Class Compute
- */
 abstract class Compute
 {
     protected $number1;
     protected $number2;
 
-    /**
-     * @return float
-     */
     public abstract function getResult():float;
 
     public function __set($name, $value)
@@ -61,7 +55,7 @@ class computeFactory
         $mode = ucwords($mode);
         if (class_exists($mode)) {
             /*
-             *  I don't know which way to create the class is better. Please reply me(phpcyy@163.com) if you have a good answer.
+             *  Which way is better?
              */
             return new $mode;
             //return (new ReflectionClass($mode))->newInstance();
@@ -71,12 +65,10 @@ class computeFactory
 }
 
 try {
-    $compute = computeFactory::create("sub");
+    $compute = computeFactory::create("add");
     $compute->number1 = 1;
     $compute->number2 = 2;
     echo $compute->getResult();
-} catch (Error $e) {
-    echo $e->getMessage();
-} catch (Exception $e) {
+} catch (Throwable $e) {
     echo $e->getMessage();
 }
