@@ -1,0 +1,17 @@
+{
+    "name": "phpcyy/design-pattern",
+    "authors": [
+        {
+            "name": "phpcyy",
+            "email": "phpcyy@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0"
+    },
+    "autoload":{
+        "psr-4": {
+            "": "src/"
+        }
+    }
+}
